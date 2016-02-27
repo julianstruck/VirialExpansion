@@ -44,7 +44,7 @@ PTildeAll = 10*pi/(6*pi^2)^(2/3).* (Z_vec + b2 .* Z_vec.^2 + b3 .* Z_vec.^3 + b4
 KappaTildeAll = (6*pi^2)^(2/3)/(6*pi) .* (Z_vec + 4*b2 .* Z_vec.^2 + 9*b3 .* Z_vec.^3 + 16*b4 * Z_vec.^4)...
     ./(Z_vec + 2*b2 .* Z_vec.^2 + 3*b3 .* Z_vec.^3 + 4*b4 * Z_vec.^4).^(1/3);
 
-TTildeAll = 4*pi / (12* pi^2 * (Z_vec + 2*b2 .* Z_vec.^2 + 3*b3 .* Z_vec.^3 + 4*b4 * Z_vec.^4))^(2/3);
+TTildeAll = 4*pi ./ (12* pi^2 * (Z_vec + 2*b2 .* Z_vec.^2 + 3*b3 .* Z_vec.^3 + 4*b4 * Z_vec.^4)).^(2/3);
 
 %% Select EOS data for a certain regime defined by PTildeMax and PTildeMin
 [diff1,MaxSelectIndex] = min(abs(PTildeAll - PTildeMin));
