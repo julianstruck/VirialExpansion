@@ -1,7 +1,8 @@
-function [ KappaTilde, PTilde, TTilde, CI_NkF, Z_vec ] = ...
+function [ KappaTilde, PTilde, TTilde, CI_NkF, BetaMu_vec, Z_vec ] = ...
     VirialUnitarity( varargin )
 %VirialUnitarity This function computes the virial expansion of the EOS of 
-% the unitary fermi gas. (copressibility, pressure, temperature, contact)
+% the unitary fermi gas as a function of fugacity z=exp(\beta*\mu) 
+% (compressibility, pressure, temperature, contact).
 % 
 % Optional name value input parameters:
 % "LogPoints: specifies the amount of data points on a log scale. If nothing
@@ -65,10 +66,10 @@ elseif ContactOrder==3
 end
 
 %% Generate EOS data
-Xstart = -6;
-Xstop = -0.3;
-X_vec = linspace(Xstart,Xstop, LogPoints);
-Z_vec = exp(X_vec);
+BetaMu_start = -6;
+BetaMu_stop = -0.3;
+BetaMu_vec = linspace(BetaMu_start, BetaMu_stop, LogPoints);
+Z_vec = exp(BetaMu_vec);
 
 PTilde = 10*pi/(6*pi^2)^(2/3).* (Z_vec + b2 .* Z_vec.^2 + b3 .* Z_vec.^3 + b4 * Z_vec.^4)...
     ./ (Z_vec + 2*b2 .* Z_vec.^2 + 3*b3 .* Z_vec.^3 + 4*b4 * Z_vec.^4).^(5/3);
