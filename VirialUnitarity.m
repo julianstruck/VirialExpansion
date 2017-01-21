@@ -66,7 +66,7 @@ elseif ContactOrder==3
 end
 
 %% Generate EOS data
-BetaMu_start = -6;
+BetaMu_start = -7;
 BetaMu_stop = -0.3;
 BetaMu_vec = linspace(BetaMu_start, BetaMu_stop, LogPoints);
 Z_vec = exp(BetaMu_vec);
